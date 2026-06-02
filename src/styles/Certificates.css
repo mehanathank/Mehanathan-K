@@ -1,0 +1,43 @@
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+.certificate-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.certificate-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: var(--transition);
+}
+.certificate-card:hover { border-color: var(--accent1); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(88,166,255,0.1); }
+.certificate-card:hover::before { transform: scaleX(1); }
+.certificate-icon {
+  width: 48px; height: 48px;
+  border-radius: 10px;
+  background: rgba(88,166,255,0.12);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+  color: var(--accent1);
+  flex-shrink: 0;
+}
+.certificate-info h3 { font-size: 0.98rem; font-weight: 700; margin-bottom: 10px; color: var(--text); }
+.certificate-issuer, .certificate-year {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 0.82rem; color: var(--muted); margin-top: 4px;
+}
+.certificate-issuer i, .certificate-year i { color: var(--accent1); font-size: 0.78rem; }

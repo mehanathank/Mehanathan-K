@@ -1,0 +1,46 @@
+.profiles-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.profile-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  text-align: center;
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: var(--transition);
+}
+.profile-card:hover { transform: translateY(-6px); }
+.profile-card.github:hover  { border-color: #58a6ff; box-shadow: 0 12px 32px rgba(88,166,255,0.15); }
+.profile-card.linkedin:hover { border-color: #0a66c2; box-shadow: 0 12px 32px rgba(10,102,194,0.25); }
+.profile-card.leetcode:hover { border-color: #ffa116; box-shadow: 0 12px 32px rgba(255,161,22,0.25); }
+.profile-card.skillrack:hover { border-color: #00b4d8; box-shadow: 0 12px 32px rgba(0,180,216,0.25); }
+
+.profile-icon { font-size: 2.4rem; }
+.profile-card.github   .profile-icon { color: #e6edf3; }
+.profile-card.linkedin .profile-icon { color: #0a66c2; }
+.profile-card.leetcode .profile-icon { color: #ffa116; }
+.profile-card.skillrack .profile-icon { color: #00b4d8; }
+
+.profile-card h3 { font-size: 1.1rem; font-weight: 700; }
+.profile-card p  { font-size: 0.85rem; color: var(--muted); font-family: 'Fira Code', monospace; }
+
+.profile-stat {
+  font-size: 0.78rem;
+  color: var(--accent1);
+  background: rgba(88,166,255,0.1);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-family: 'Fira Code', monospace;
+}
+.profile-arrow { margin-top: 8px; color: var(--muted); font-size: 0.85rem; transition: var(--transition); }
+.profile-card:hover .profile-arrow { color: var(--accent2); transform: translateX(4px); }
