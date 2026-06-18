@@ -3,7 +3,7 @@ import '../styles/Profiles.css';
 const profiles = [
   { cls: 'github',   icon: 'fab fa-github',      title: 'GitHub',   handle: 'mehanathank',    link: 'https://github.com/mehanathank' },
   { cls: 'linkedin', icon: 'fab fa-linkedin-in',  title: 'LinkedIn', handle: 'mehanathan-k',   link: 'https://www.linkedin.com/in/mehanathan-k-5802622a5' },
-  { cls: 'leetcode', icon: 'fas fa-code',          title: 'LeetCode', handle: 'mehanathan-k',   link: 'https://leetcode.com/u/mehanathan-k/', stat: '100+ Problems Solved' },
+  { cls: 'leetcode', icon: 'fas fa-code',          title: 'LeetCode', handle: 'mehanathan-k',   link: 'https://leetcode.com/u/mehanathan-k/', stat: '200+ Problems Solved' },
   { cls: 'skillrack',icon: 'fas fa-laptop-code',   title: 'SkillRack',handle: 'mehanathan-k',   link: 'https://www.skillrack.com', stat: '220+ Problems • 100+ Bronze Badges' },
 ];
 
