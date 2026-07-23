@@ -1,11 +1,11 @@
 import '../styles/Certificates.css';
 
 const certs = [
-  { icon: 'fab fa-java',    title: 'Java Programming for Beginners', issuer: 'Skillup',     year: '2025' },
-  { icon: 'fas fa-award',   title: 'Badge on Java Programming',      issuer: 'Oracle',      year: '2025' },
-  { icon: 'fas fa-database',title: 'SQL Basic Certificate',          issuer: 'HackerRank',  year: '2025' },
-  { icon: 'fas fa-database',title: 'SQL Advanced Certificate',       issuer: 'HackerRank',  year: '2025' },
-  { icon: 'fas fa-server',  title: 'Top DBMS Interview Questions',   issuer: 'CodeChef',    year: '2025' },
+  { icon: 'fab fa-java',    title: 'Java Fundamentals Badge',       issuer: 'Oracle Java Foundation', year: '2025' },
+  { icon: 'fab fa-java',    title: 'Java Basics',                    issuer: 'Simplilearn',            year: '2025' },
+  { icon: 'fas fa-database',title: 'SQL Intermediate & Advanced',   issuer: 'HackerRank',             year: '2025' },
+  { icon: 'fas fa-server',  title: 'Top DBMS Interview Questions',   issuer: 'CodeChef',               year: '2025' },
+  { icon: 'fas fa-globe',   title: 'Web Development',               issuer: 'Udemy',                  year: '2025' },
 ];
 
 export default function Certificates() {

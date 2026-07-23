@@ -1,21 +1,35 @@
 .projects { background: var(--bg2); }
+
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 28px;
-}
-.project-card {
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: var(--transition);
-  position: relative;
-  overflow: hidden;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
 }
+
+.project-card-scroll-wrap {
+  width: 100%;
+  max-width: 850px;
+  height: 72vh; /* Expanded slightly to account for details drawer height */
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.project-card {
+  background: var(--card);
+  backdrop-filter: var(--card-blur);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  box-shadow: var(--shadow-glass);
+}
+
 .project-card::before {
   content: '';
   position: absolute;
@@ -25,20 +39,129 @@
   transform: scaleX(0);
   transition: var(--transition);
 }
-.project-card:hover { border-color: var(--accent1); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(88,166,255,0.15); }
-.project-card:hover::before { transform: scaleX(1); }
-.project-card-top { display: flex; justify-content: space-between; align-items: center; }
-.project-icon { font-size: 1.8rem; color: var(--accent1); }
-.project-links a { color: var(--muted); font-size: 1.2rem; text-decoration: none; transition: var(--transition); }
-.project-links a:hover { color: var(--accent2); }
-.project-title { font-size: 1.05rem; font-weight: 700; }
-.project-desc { color: var(--muted); font-size: 0.9rem; flex: 1; }
-.project-tech { display: flex; flex-wrap: wrap; gap: 8px; }
-.project-tech span {
-  background: rgba(88,166,255,0.1);
+
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.project-icon {
+  font-size: 1.8rem;
   color: var(--accent1);
-  border-radius: 4px;
-  padding: 3px 10px;
-  font-size: 0.78rem;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.project-desc {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.project-tech span {
+  background: rgba(163, 230, 53, 0.08);
+  color: var(--accent1);
+  border: 1px solid rgba(163, 230, 53, 0.15);
+  border-radius: 6px;
+  padding: 4px 12px;
+  font-size: 0.8rem;
   font-family: 'Fira Code', monospace;
+}
+
+.project-buttons {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.project-btn {
+  flex: 1;
+  justify-content: center;
+  font-size: 0.9rem;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.demo-btn:hover {
+  transform: scale(1.03) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(163, 230, 53, 0.35);
+}
+
+.repo-btn:hover {
+  transform: scale(1.03) translateY(-2px);
+  border-color: var(--accent1);
+  box-shadow: 0 8px 24px rgba(163, 230, 53, 0.15);
+}
+
+.detail-btn:hover {
+  transform: scale(1.03) translateY(-2px);
+  border-color: var(--accent1);
+  box-shadow: 0 8px 24px rgba(163, 230, 53, 0.15);
+}
+
+.project-card-details {
+  border-top: 1px dashed var(--border);
+  margin-top: 12px;
+  padding-top: 18px;
+  width: 100%;
+}
+
+.details-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--accent2);
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.details-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.details-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.details-icon {
+  color: var(--accent1);
+  font-size: 0.85rem;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .project-card {
+    padding: 24px;
+    gap: 16px;
+  }
+  .project-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

@@ -14,12 +14,14 @@
 
 .contact-form {
   background: var(--card);
+  backdrop-filter: var(--card-blur);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 36px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  box-shadow: var(--shadow-glass);
 }
 .form-group { display: flex; flex-direction: column; gap: 8px; }
 .form-group label { font-size: 0.85rem; font-weight: 500; color: var(--muted); }
@@ -37,7 +39,7 @@
 .form-group input:focus, .form-group textarea:focus {
   outline: none;
   border-color: var(--accent1);
-  box-shadow: 0 0 0 3px rgba(88,166,255,0.15);
+  box-shadow: 0 0 0 3px rgba(163, 230, 53, 0.2);
 }
 .form-status { text-align: center; font-size: 0.88rem; min-height: 1.2em; color: var(--accent2); }
 

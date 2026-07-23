@@ -5,6 +5,7 @@
 }
 .certificate-card {
   background: var(--card);
+  backdrop-filter: var(--card-blur);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 28px;
@@ -14,6 +15,7 @@
   transition: var(--transition);
   position: relative;
   overflow: hidden;
+  box-shadow: var(--shadow-glass);
 }
 .certificate-card::before {
   content: '';
@@ -24,12 +26,12 @@
   transform: scaleX(0);
   transition: var(--transition);
 }
-.certificate-card:hover { border-color: var(--accent1); transform: translateY(-4px); box-shadow: 0 12px 32px rgba(88,166,255,0.1); }
+.certificate-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-glass-glow); }
 .certificate-card:hover::before { transform: scaleX(1); }
 .certificate-icon {
   width: 48px; height: 48px;
   border-radius: 10px;
-  background: rgba(88,166,255,0.12);
+  background: rgba(163, 230, 53, 0.12);
   display: flex; align-items: center; justify-content: center;
   font-size: 1.4rem;
   color: var(--accent1);

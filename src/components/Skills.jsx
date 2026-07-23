@@ -2,9 +2,11 @@ import '../styles/Skills.css';
 
 const categories = [
   { icon: 'fas fa-terminal', title: 'Programming Languages', tags: ['C', 'C++', 'Java'] },
-  { icon: 'fas fa-globe', title: 'Web Technologies', tags: ['HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js'] },
-  { icon: 'fas fa-brain', title: 'Core Concepts', tags: ['Data Structures', 'OOP', 'DBMS', 'AI/ML'] },
-  { icon: 'fas fa-tools', title: 'Tools', tags: ['Git', 'GitHub', 'VS Code', 'IntelliJ IDEA', 'PowerBI', 'Excel'] },
+  { icon: 'fas fa-globe', title: 'Web & MERN Stack', tags: ['HTML', 'CSS', 'JavaScript', 'ReactJS', 'NodeJS', 'ExpressJS', 'MongoDB', 'Mongoose'] },
+  { icon: 'fas fa-cloud', title: 'Cloud & DevOps', tags: ['AWS', 'Vercel', 'Netlify'] },
+  { icon: 'fas fa-database', title: 'Databases', tags: ['MongoDB', 'MySQL'] },
+  { icon: 'fas fa-layer-group', title: 'Libraries & Frameworks', tags: ['ReactJS', 'NodeJS', 'ExpressJS', 'NestJS', 'Mongoose'] },
+  { icon: 'fas fa-tools', title: 'Tools & Utilities', tags: ['Linux', 'Git', 'Docker', 'Figma', 'PowerBI', 'Canva', 'VS Code'] },
 ];
 
 export default function Skills() {

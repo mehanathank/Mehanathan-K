@@ -13,7 +13,7 @@ export default function About() {
               I enjoy building real-world applications and solving complex problems using programming and modern web technologies.
             </p>
             <div className="about-stats">
-              {[['3+','Projects'],['100+','LeetCode'],['220+','SkillRack']].map(([num, label]) => (
+              {[['4','Projects'],['100+','LeetCode'],['220+','SkillRack']].map(([num, label]) => (
                 <div className="stat-card reveal" key={label}>
                   <span className="stat-num">{num}</span>
                   <span className="stat-label">{label}</span>

@@ -18,7 +18,7 @@ const achievements = [
   },
   {
     icon: 'fas fa-microscope', prize: false,
-    title: 'Tex-Research Hackathon — Yugam 2026',
+    title: '🏆 Top 8 — Tex-Research Hackathon, Yugam\'26',
     org: 'Kumaraguru Institutions, Coimbatore',
     project: '🧵 Real-Time Fabric Defect Detection System — AI-Powered Textile Quality Inspection',
     features: [['fas fa-eye','YOLOv8 Detection'],['fas fa-tachometer-alt','20+ FPS Real-Time'],['fas fa-bullseye','~98.5% Accuracy'],['fas fa-industry','Industrial Scale']],
@@ -70,7 +70,7 @@ export default function Achievements() {
                 </h3>
                 <p className="gdg-subtitle">
                   <i className="fas fa-medal" aria-hidden="true" />
-                  &nbsp;<span className="gdg-highlight">Top 100 Global Teams</span>
+                  &nbsp;<span className="gdg-highlight">Top 106 Global Teams</span>
                 </p>
               </div>
             </div>
@@ -86,14 +86,14 @@ export default function Achievements() {
               </div>
               <div className="gdg-number-divider" aria-hidden="true" />
               <div className="gdg-number-item">
-                <span className="gdg-number">Top <span className="gdg-number-accent">100</span></span>
+                <span className="gdg-number">Top <span className="gdg-number-accent">106</span></span>
                 <span className="gdg-number-label">Selected Globally</span>
               </div>
             </div>
 
             {/* Description */}
             <p className="gdg-description">
-              Our team was selected among the <strong>Top 100 teams worldwide</strong> in the GDG Solution Challenge 2026.
+              Our team was selected among the <strong>Top 106 teams worldwide</strong> in the GDG Solution Challenge 2026.
               More than <strong>67,000 project submissions</strong> participated globally, and our project was recognized
               as one of the top solutions for its innovation, technical excellence, and social impact.
             </p>
