@@ -62,6 +62,7 @@ export default function Hero() {
       </div>
       <div className="hero-visual">
         <div className="hero-photo-ring">
+          <img src={photo} alt="" className="hero-photo-bg" />
           <div className="hero-photo-inner">
             <img src={photo} alt="Mehanathan K" className="hero-photo" />
           </div>

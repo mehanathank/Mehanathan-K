@@ -106,16 +106,17 @@
   50% { transform: translateY(-10px); }
 }
 
-/* Offset decorative border behind the photo */
-.hero-photo-ring::before {
-  content: '';
+/* Blurred photo shadow behind the main photo */
+.hero-photo-bg {
   position: absolute;
-  inset: 0;
+  inset: 6px;
   border-radius: 20px;
-  background: var(--gradient);
-  transform: translate(12px, 12px);
+  object-fit: cover;
+  object-position: center top;
+  transform: translate(14px, 14px);
+  filter: blur(16px) brightness(0.85) saturate(130%);
+  opacity: 0.7;
   z-index: 0;
-  opacity: 0.35;
 }
 
 /* Floating accent dot top-left */
