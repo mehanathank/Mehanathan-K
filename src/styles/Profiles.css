@@ -18,12 +18,22 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  transition: var(--transition);
   box-shadow: var(--shadow-glass);
+  /* 3D tilt handled via JS; CSS transition for smooth reset */
+  transition: border-color 0.35s ease, box-shadow 0.35s ease, transform 0.15s ease;
 }
-.profile-card:hover { transform: translateY(-6px); border-color: var(--border-hover); box-shadow: var(--shadow-glass-glow); }
+.profile-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-glass-glow);
+}
 
-.profile-icon { font-size: 2.4rem; }
+.profile-icon {
+  font-size: 2.4rem;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.profile-card:hover .profile-icon {
+  transform: scale(1.15) rotate(-6deg);
+}
 .profile-card.github   .profile-icon { color: #f4f8f4; }
 .profile-card.linkedin .profile-icon { color: #0a66c2; }
 .profile-card.leetcode .profile-icon { color: #ffa116; }
@@ -35,7 +45,7 @@
 .profile-stat {
   font-size: 0.78rem;
   color: var(--accent1);
-  background: rgba(163, 230, 53, 0.1);
+  background: rgba(93, 211, 182, 0.1);
   border-radius: 6px;
   padding: 3px 10px;
   font-family: 'Fira Code', monospace;

@@ -5,5 +5,20 @@
   padding: 28px;
   color: var(--muted);
   font-size: 0.88rem;
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 120px; height: 2px;
+  background: var(--gradient);
+  animation: footer-line 3s ease-in-out infinite;
+}
+@keyframes footer-line {
+  0%, 100% { width: 60px; opacity: 0.5; }
+  50%       { width: 160px; opacity: 1; }
 }
 .footer-sub { margin-top: 4px; font-size: 0.78rem; opacity: 0.6; }

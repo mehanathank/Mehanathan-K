@@ -1,0 +1,197 @@
+/* ═══════════════════════════════════════════
+   LOADER OVERLAY
+═══════════════════════════════════════════ */
+.loader-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #060e0d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader-overlay.loader-fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* ── Background orbs ─────────────────────── */
+.loader-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  animation: orb-pulse 5s ease-in-out infinite;
+}
+.loader-orb-1 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(93, 211, 182, 0.18), transparent 70%);
+  top: -150px; left: -150px;
+}
+.loader-orb-2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(43, 191, 164, 0.12), transparent 70%);
+  bottom: -120px; right: -120px;
+  animation-delay: -2.5s;
+}
+@keyframes orb-pulse {
+  0%, 100% { transform: scale(1);    opacity: 0.7; }
+  50%       { transform: scale(1.12); opacity: 1;   }
+}
+
+/* ── Center block ────────────────────────── */
+.loader-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Logo ────────────────────────────────── */
+.loader-logo {
+  position: relative;
+  width: 90px; height: 90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.loader-logo-text {
+  font-size: 2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #5dd3b6, #2bbfa4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Spinning rings around the logo */
+.loader-logo-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  border-top-color: #5dd3b6;
+  border-right-color: rgba(93, 211, 182, 0.3);
+  animation: ring-spin 1.2s linear infinite;
+}
+.loader-logo-ring-2 {
+  inset: 8px;
+  border-top-color: #2bbfa4;
+  border-right-color: rgba(43, 191, 164, 0.25);
+  animation: ring-spin 1.8s linear infinite reverse;
+}
+@keyframes ring-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Text ────────────────────────────────── */
+.loader-name {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #edfaf7;
+  letter-spacing: -0.02em;
+  animation: fade-in-up 0.6s ease forwards;
+}
+.loader-name span {
+  background: linear-gradient(135deg, #5dd3b6, #2bbfa4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.loader-role {
+  font-size: 0.82rem;
+  font-family: 'Fira Code', monospace;
+  color: #7ab5ac;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fade-in-up 0.6s ease 0.1s both;
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Progress bar ────────────────────────── */
+.loader-bar-wrap {
+  width: 220px;
+  height: 3px;
+  background: rgba(93, 211, 182, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.loader-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #5dd3b6, #2bbfa4);
+  border-radius: 3px;
+  transition: width 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 0 10px rgba(93, 211, 182, 0.6);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer on the bar */
+.loader-bar-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  background-size: 60% 100%;
+  animation: bar-shimmer 1s ease-in-out infinite;
+}
+@keyframes bar-shimmer {
+  0%   { background-position: -60% center; }
+  100% { background-position: 160% center; }
+}
+
+/* ── Percentage ──────────────────────────── */
+.loader-percent {
+  font-size: 0.75rem;
+  font-family: 'Fira Code', monospace;
+  color: #5dd3b6;
+  letter-spacing: 0.08em;
+  min-width: 36px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+/* ── Bottom bouncing dots ────────────────── */
+.loader-dots {
+  position: absolute;
+  bottom: 48px;
+  display: flex;
+  gap: 8px;
+}
+.loader-dots span {
+  display: block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #5dd3b6;
+  animation: dot-bounce 1.2s ease-in-out infinite;
+}
+.loader-dots span:nth-child(2) { animation-delay: 0.18s; background: #24b09a; }
+.loader-dots span:nth-child(3) { animation-delay: 0.36s; background: #2bbfa4; }
+@keyframes dot-bounce {
+  0%, 80%, 100% { transform: translateY(0);   opacity: 0.4; }
+  40%           { transform: translateY(-10px); opacity: 1;   }
+}

@@ -54,9 +54,28 @@
   font-family: 'Fira Code', monospace;
   transition: var(--transition);
   cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.skill-tag::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(93, 211, 182,0.15) 50%, transparent 100%);
+  background-size: 200% 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 .skill-tag:hover {
   border-color: var(--accent2);
   color: var(--accent2);
-  background: rgba(163, 230, 53, 0.08);
+  background: rgba(93, 211, 182, 0.08);
+}
+.skill-tag:hover::after {
+  opacity: 1;
+  animation: tag-sweep 0.5s ease forwards;
+}
+@keyframes tag-sweep {
+  from { background-position: -200% center; }
+  to   { background-position: 200% center; }
 }

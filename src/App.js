@@ -1,5 +1,6 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import './styles/globals.css';
+import Loader from './components/Loader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -12,7 +13,14 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+  const handleDone = useCallback(() => setLoading(false), []);
+
   useEffect(() => {
+    if (loading) return; // don't run observers until content is mounted
+
+    // Scroll reveal for all variants
+    const revealClasses = ['.reveal', '.reveal-left', '.reveal-right', '.reveal-scale'];
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(e => {
         if (e.isIntersecting) {
@@ -22,26 +30,50 @@ export default function App() {
       });
     }, { threshold: 0.12 });
 
-    document.querySelectorAll('.reveal').forEach((el, i) => {
-      el.style.transitionDelay = `${(i % 4) * 80}ms`;
-      observer.observe(el);
+    revealClasses.forEach(cls => {
+      document.querySelectorAll(cls).forEach((el, i) => {
+        el.style.transitionDelay = `${(i % 5) * 80}ms`;
+        observer.observe(el);
+      });
     });
 
-    return () => observer.disconnect();
-  }, []);
+    // Section title underline animation
+    const titleObserver = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('title-visible');
+          titleObserver.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('.section-title').forEach(el => {
+      titleObserver.observe(el);
+    });
+
+    return () => {
+      observer.disconnect();
+      titleObserver.disconnect();
+    };
+  }, [loading]);
 
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Profiles />
-      <Achievements />
-      <Certificates />
-      <Contact />
-      <Footer />
+      {loading && <Loader onDone={handleDone} />}
+      {!loading && (
+        <>
+          <Navbar />
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Profiles />
+          <Achievements />
+          <Certificates />
+          <Contact />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
